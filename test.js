@@ -5,4 +5,14 @@ describe("toTitleCase", () => {
     const titleCasedString = toTitleCase("hello");
     expect(titleCasedString).toBe("Hello");
   });
+
+  it("capitalizes the first letter of each word in string", () => {
+    const titleCasedString = toTitleCase("hello world");
+    expect(titleCasedString).toBe("Hello World");
+  });
+
+  it("it correctly title cases hyphenated words", () => {
+    const titleCasedString = toTitleCase("raleigh-durham");
+    expect(titleCasedString).toBe("Raleigh-Durham");
+  });
 });
