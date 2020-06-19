@@ -1,3 +1,3 @@
 # test-primer
 
-Leaning unit testing
+Learning unit testing
