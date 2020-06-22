@@ -1,4 +1,5 @@
 function toTitleCase(someString) {
+  someString = String(someString);
   //match the first letter of string, the first letter after a space, "-", and "."
   const regex = /(^|[\s.\-])([a-zA-z])/g;
   const titleCaseString = someString.replace(regex, (match, symbol, letter) => {

@@ -16,8 +16,13 @@ describe("toTitleCase", () => {
     expect(titleCasedString).toBe("Raleigh-Durham");
   });
 
-  it("it correctly title cases hyphenated words", () => {
+  it("it correctly title cases letters after dots", () => {
     const titleCasedString = toTitleCase("washington d.c.");
     expect(titleCasedString).toBe("Washington D.C.");
+  });
+
+  it("it correctly takes numbers as input", () => {
+    const titleCasedString = toTitleCase(123);
+    expect(titleCasedString).toBe("123");
   });
 });
