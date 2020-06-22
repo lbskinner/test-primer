@@ -15,4 +15,9 @@ describe("toTitleCase", () => {
     const titleCasedString = toTitleCase("raleigh-durham");
     expect(titleCasedString).toBe("Raleigh-Durham");
   });
+
+  it("it correctly title cases hyphenated words", () => {
+    const titleCasedString = toTitleCase("washington d.c.");
+    expect(titleCasedString).toBe("Washington D.C.");
+  });
 });
