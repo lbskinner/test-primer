@@ -1,4 +1,7 @@
 function toTitleCase(someString) {
+  if (someString === null || someString === undefined) {
+    return "";
+  }
   someString = String(someString);
   //match the first letter of string, the first letter after a space, "-", and "."
   const regex = /(^|[\s.\-])([a-zA-z])/g;
