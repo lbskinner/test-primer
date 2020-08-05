@@ -3,9 +3,10 @@
 string = "This string is backwards!";
 
 function sortStringBackwards(string) {
-  const splitStringArray = string.split("");
-  const reverseArray = splitStringArray.reverse();
-  return (newString = reverseArray.join(""));
+  // const splitStringArray = string.split("");
+  // const reverseArray = splitStringArray.reverse();
+  // return (newString = reverseArray.join(""));
+  return string.split("").reverse().join("");
 }
 
 console.log(sortStringBackwards(string));
