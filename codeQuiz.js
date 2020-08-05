@@ -17,7 +17,6 @@ console.log(sortStringBackwards(string));
 // Example: 8*7*6*5*4*3*2*1
 
 function factorialNum(num) {
-  //   const result = num * (num - 1);
   if (num > 1) {
     return num * factorialNum(num - 1);
   }
