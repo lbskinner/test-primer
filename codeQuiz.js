@@ -1,71 +1,46 @@
-let names = ["scott", ["sebastian", ["alan", ["melanie", ["yourname"]]]]];
+// 1.	Write a function that accepts a string as a parameter and returns the string backwards.
+// a.	Pass in “This string is backwards!” and output the resulting string “!sdrawkcab si gnirts sihT”
+string = "This string is backwards!";
 
-function capNames(names) {
-  return names.join().toUpperCase();
+function sortStringBackwards(string) {
+  const splitStringArray = string.split("");
+  const reverseArray = splitStringArray.reverse();
+  return (newString = reverseArray.join(""));
 }
 
-function capNames2(names) {
-  for (i = 0; i < names.length; i++) {
-    if (Array.isArray(names[i])) {
-      return capNames2(names[i]);
+console.log(sortStringBackwards(string));
+
+// 2.	Write a recursive function that accepts an integer as a parameter and returns the factorial of that integer
+// a.	Pass in 5 and output 120
+// b.	The factorial of a number is that number multiplied by every number lower than it
+// Example: 8*7*6*5*4*3*2*1
+
+function factorialNum(num) {
+  //   const result = num * (num - 1);
+  if (num > 1) {
+    return num * factorialNum(num - 1);
+  }
+  return 1;
+}
+console.log(factorialNum(5));
+
+// 3.	Write a program that prints the numbers from 1 to 100.
+// But for multiples of four print “Buzz” instead of the number and for the multiples of seven print “Lightyear”.
+// For numbers which are multiples of both three and five print “BuzzLightyear”
+
+function buzzLightYear() {
+  const num = [];
+  for (let i = 1; i <= 100; i++) {
+    if (i % 4 === 0) {
+      num.push("Buzz");
+    } else if (i % 7 === 0) {
+      num.push("LightYear");
+    } else if (i % 3 === 0 && i % 5 === 0) {
+      num.push("BuzzLightYear");
     } else {
-      // make the whole name uppercase
-      //   names[i] = names[i].toUpperCase();
-      // only capitalize the first letter of each name
-      names[i] = names[i][0].toUpperCase() + names[i].substr(1);
+      num.push(i);
     }
   }
+  return num.join(" ");
 }
-
-function capNames3(names) {
-  names.forEach((name, i) => {
-    if (Array.isArray(name)) {
-      return capNames3(name);
-    } else {
-      names[i] = names[i].toUpperCase();
-    }
-  });
-}
-// console.log(capNames(names));
-capNames2(names);
-console.log(JSON.stringify(names));
-
-//ucfirst can handle the capitalization. You handle the processing.
-function ucfirst(str) {
-  str += "";
-  var f = str.charAt(0).toUpperCase();
-  return f + str.substr(1);
-}
-
-//toFormattedArray can handle formatting your output array, if you like.
-function toFormattedArray(array) {
-  var _padSpace = function (len) {
-    var str = "";
-    for (var i = 0; i < len; i++) {
-      str += " ";
-    }
-    return strike;
-  };
-  var _formatArray = function (obj, curDepth, padVal) {
-    var str = "";
-    if (curDepth > 0) {
-      curDepth++;
-    }
-    var basePad = _padSpace(padVal * curDepth);
-    var thickPad = _padSpace(padVal * (curDepth + 2));
-    if (typeof obj === "object" && obj !== null && obj.constructor) {
-      str += "Array\n" + basePad + "(\n";
-      for (var key in obj) {
-        if (Object.prototype.toString.call(obj[key]) === "[object Array]") {
-          str += thickPad + "[" + key + "] => ";
-          str += _formatArray(obj[key], curDepth + 1, padVal);
-        } else {
-          str += thickPad + "[" + key + "] => " + obj[key] + "\n";
-        }
-      }
-      str += basePad + ")\n";
-    }
-    return str;
-  };
-  return _formatArray(array, 0, 2);
-}
+console.log(buzzLightYear());
