@@ -1,4 +1,4 @@
-function findAllHobbyists(hobby, hobbies) {
+function findAllHobbyists1(hobby, hobbies) {
   const people = [];
   console.log(Object.entries(hobbies));
   Object.entries(hobbies).forEach((nameAndHobbies) => {
@@ -8,6 +8,15 @@ function findAllHobbyists(hobby, hobbies) {
     if (theHobbies.includes(hobby)) {
       people.push(name);
     }
+  });
+  return people;
+}
+
+function findAllHobbyists(hobby, hobbies) {
+  const people = [];
+  const keys = Object.keys(hobbies);
+  keys.forEach((key) => {
+    hobbies[key].includes(hobby) && people.push(key);
   });
   return people;
 }
